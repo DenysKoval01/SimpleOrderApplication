@@ -35,7 +35,7 @@ namespace SimpleOrderApplication
             //check the discount is 0 in each item
             foreach (OrderItem item in orderWithout.orderItems)
             {
-                Console.WriteLine("Item: " + item.Name + ", Discount: " + item.Discount);
+                Console.WriteLine("Item: " + item.Name + ", Discount: " + item.Discount + ", New Price: " + item.NewPrice);
             }
 
 

@@ -13,17 +13,15 @@ namespace SimpleOrderApplication.Orders
         public List<OrderItem> orderItems;
 
         private readonly IDiscount? Discount;
-        private decimal NewPrice;
+        private decimal? NewPrice;
 
         public Order()
         {
             orderItems = new List<OrderItem>();
         }
 
-        public Order(IDiscount? discount = null) {
-#pragma warning disable CS8601 // Possible null reference assignment.
+        public Order(IDiscount discount) {
             Discount = discount;
-#pragma warning restore CS8601 // Possible null reference assignment.
             orderItems = new List<OrderItem>();
         }
 
@@ -46,8 +44,9 @@ namespace SimpleOrderApplication.Orders
                 discountAmount = Discount.GetDiscount(product.Price);
                 NewPrice = product.Price - discountAmount;
             }
-
-            OrderItem orderItem = new OrderItem(product.Name, product.Price, quantity,discountAmount, NewPrice);
+            
+            decimal finalNewPrice = NewPrice ?? product.Price;
+            OrderItem orderItem = new OrderItem(product.Name, product.Price, quantity,discountAmount, finalNewPrice);
             orderItems.Add(orderItem);
         }
 
