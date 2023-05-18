@@ -42,7 +42,8 @@ namespace SimpleOrderApplication.Orders
             if (Discount != null)
             {
                 discountAmount = Discount.GetDiscount(product.Price);
-                NewPrice = product.Price - discountAmount;
+                if (discountAmount != product.Price) NewPrice = product.Price - discountAmount;
+                else NewPrice = product.Price;
             }
             
             decimal finalNewPrice = NewPrice ?? product.Price;
