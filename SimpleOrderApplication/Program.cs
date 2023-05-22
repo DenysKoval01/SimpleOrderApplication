@@ -101,9 +101,9 @@ namespace SimpleOrderApplication
 
             OrderItem testdOrderItem = new OrderItem("TestdOrderItem", 15,2, 0,5);
             Console.WriteLine(testdOrderItem);
-            testdOrderItem.Discount = 5;
+            testdOrderItem.Discount = 8;
             Console.WriteLine(testdOrderItem);
-            testdOrderItem.Quantity = 4;
+            testdOrderItem.Quantity = 3;
             Console.WriteLine(testdOrderItem);
 
 
