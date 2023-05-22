@@ -99,18 +99,15 @@ namespace SimpleOrderApplication
 
 
 
-            OrderItem item1 = new OrderItem("OrdItem", 15,2, 0,5);
-            Console.WriteLine(item1);
-            item1.Discount = 5;
-            Console.WriteLine(item1);
-            item1.Quantity = 4;
-            Console.WriteLine(item1);
+            OrderItem testdOrderItem = new OrderItem("TestdOrderItem", 15,2, 0,5);
+            Console.WriteLine(testdOrderItem);
+            testdOrderItem.Discount = 5;
+            Console.WriteLine(testdOrderItem);
+            testdOrderItem.Quantity = 4;
+            Console.WriteLine(testdOrderItem);
 
 
             Console.ReadLine();
         }
-
-
-
     }
 }
