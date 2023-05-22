@@ -9,11 +9,38 @@ namespace SimpleOrderApplication.Orders
 {
     public class OrderItem
     {
-        public string Name { get; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public decimal Discount { get; set; }
-        public decimal Amount { get;  set; }
+        private decimal _price;
+        private decimal _quantity;
+        private decimal _discount;
+        public string? Name { get; set; }
+        public decimal Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                RecalculateAmount();
+            }
+        }
+        public decimal Quantity
+        {
+            get { return _quantity; }
+            set
+            {
+                _quantity = value;
+                RecalculateAmount();
+            }
+        }
+        public decimal Discount
+        {
+            get { return _discount; }
+            set
+            {
+                _discount = value;
+                RecalculateAmount();
+            }
+        }
+        public decimal Amount { get; set; }
         public decimal NewPrice { get;  set; }
 
 
@@ -28,8 +55,9 @@ namespace SimpleOrderApplication.Orders
             Discount = discount;
 
             NewPrice = newPrice;
-            RecalculateAmount();
+            Amount = price * quantity;
         }
+
 
         private void RecalculateAmount()
         {

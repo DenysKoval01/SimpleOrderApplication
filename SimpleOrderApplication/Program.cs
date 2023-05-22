@@ -97,7 +97,20 @@ namespace SimpleOrderApplication
             decimal totalAmountWithFix = orderWithFix.CalculateOrderTotal();
             Console.WriteLine($"Total Amount: {totalAmountWithFix}");
 
+
+
+            OrderItem item1 = new OrderItem("OrdItem", 15,2, 0,5);
+            Console.WriteLine(item1);
+            item1.Discount = 5;
+            Console.WriteLine(item1);
+            item1.Quantity = 4;
+            Console.WriteLine(item1);
+
+
             Console.ReadLine();
         }
+
+
+
     }
 }
